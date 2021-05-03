@@ -155,10 +155,13 @@ public class Registration extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                submitBtn.setEnabled(false);
                 //Check if any of the fields is not filled
-                if(!checkInputFields() || !checkRadioAndCheckBoxes())
+                if(!checkInputFields() || !checkRadioAndCheckBoxes()) {
+                    submitBtn.setEnabled(true);
                     //If any field is empty, immediately return
                     return;
+                }
 
                 Intent intent = new Intent(Registration.this, DisplayDetails.class);
 

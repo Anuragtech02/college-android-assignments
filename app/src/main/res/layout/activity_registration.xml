@@ -159,6 +159,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="55dp"
                             android:text="@string/cgpa"
+                            android:buttonTint="@color/primary"
                             android:checked="false"
                             android:textSize="16sp"
                             android:layout_weight="1"/>
@@ -169,6 +170,7 @@
                             android:layout_height="wrap_content"
                             android:checked="false"
                             android:text="@string/percentage"
+                            android:buttonTint="@color/primary"
                             android:textSize="16sp"
                             android:layout_weight="1"/>
 
@@ -199,6 +201,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@id/tvTenthMarks"
                         android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
                         android:hint="@string/ex_95_or_9_5"
                         android:paddingVertical="12dp"
                         android:paddingHorizontal="10dp"
@@ -230,6 +233,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintTop_toBottomOf="@id/tvTwelfthMarks"
                         android:layout_marginTop="5dp"
+                        android:inputType="numberDecimal"
                         android:paddingVertical="12dp"
                         android:hint="@string/ex_95_or_9_5"
                         android:paddingHorizontal="10dp"
@@ -425,6 +429,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="55dp"
                             android:text="@string/male"
+                            android:buttonTint="@color/primary"
                             android:checked="false"
                             android:textSize="16sp"
                             android:layout_weight="1"/>
@@ -435,6 +440,7 @@
                             android:layout_height="wrap_content"
                             android:checked="false"
                             android:text="@string/female"
+                            android:buttonTint="@color/primary"
                             android:textSize="16sp"
                             android:layout_weight="1"/>
 
@@ -444,6 +450,7 @@
                             android:layout_height="wrap_content"
                             android:checked="false"
                             android:text="@string/other"
+                            android:buttonTint="@color/primary"
                             android:textSize="16sp"
                             android:layout_weight="1"/>
 
@@ -473,6 +480,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/android"
+                        android:buttonTint="@color/primary"
                         app:layout_constraintTop_toBottomOf="@id/tvSkills"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintEnd_toStartOf="@id/cbWeb"
@@ -483,6 +491,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/web"
+                        android:buttonTint="@color/primary"
                         app:layout_constraintTop_toBottomOf="@id/tvSkills"
                         app:layout_constraintStart_toEndOf="@id/cbAndroid"
                         app:layout_constraintEnd_toStartOf="@id/cbGCP"
@@ -493,6 +502,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/gcp"
+                        android:buttonTint="@color/primary"
                         app:layout_constraintTop_toBottomOf="@id/tvSkills"
                         app:layout_constraintStart_toEndOf="@id/cbWeb"
                         app:layout_constraintEnd_toStartOf="@id/cbAzure"
@@ -503,6 +513,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/azure"
+                        android:buttonTint="@color/primary"
                         app:layout_constraintTop_toBottomOf="@id/tvSkills"
                         app:layout_constraintStart_toEndOf="@id/cbGCP"
                         app:layout_constraintEnd_toStartOf="@id/cbNumpy"
@@ -513,6 +524,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/numpy"
+                        android:buttonTint="@color/primary"
                         app:layout_constraintTop_toBottomOf="@id/tvSkills"
                         app:layout_constraintStart_toEndOf="@id/cbAzure"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -522,6 +534,7 @@
 
                 <ProgressBar
                     android:id="@+id/progress"
+                    style="?android:attr/progressBarStyle"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
                     app:layout_constraintTop_toTopOf="@id/submitBtn"
@@ -532,6 +545,7 @@
                     android:progressTint="@color/white"
                     android:visibility="invisible"
                     android:theme="@style/progressBarWhite"
+                    android:elevation="5dp"
                     />
 
                 <Button
@@ -545,6 +559,7 @@
                     android:paddingHorizontal="100dp"
                     android:paddingVertical="15dp"
                     android:text="@string/submit"
+                    android:backgroundTint="@color/primary"
                     />
 
 

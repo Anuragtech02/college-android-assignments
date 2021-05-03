@@ -13,5 +13,5 @@
 #### Activity 2 (Display Details)
 ![form-1](/app/src/main/res/drawable-v24/android_assignment_3.png)
 
-#### Activity 1 (Display Details)
+#### Activity 2 (Display Details)
 ![form-1](/app/src/main/res/drawable-v24/android_assignment_4.png)

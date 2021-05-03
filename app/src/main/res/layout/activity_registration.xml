@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registration">
+
+    <ScrollView
+        android:id="@+id/formScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="15dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:scrollbars="none"
+        android:paddingVertical="20dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/headingContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/open_sans_extrabold"
+                    android:text="@string/registration_form"
+                    android:textSize="25sp"
+                    android:textColor="@color/primary"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/helper"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/light_text"
+                    android:text="@string/please_fill_the_following_details_to_proceed"
+                    />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/form"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/headingContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="20dp"
+                android:paddingBottom="80dp"
+                >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/firstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvFirstName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/first_name"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <EditText
+                        android:id="@+id/etFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/tvFirstName"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/william"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="10dp"
+                        android:background="@drawable/et_background"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/firstName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvLastName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/last_name"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <EditText
+                        android:id="@+id/etLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/tvLastName"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/johnson"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="10dp"
+                        android:background="@drawable/et_background"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/criteriaText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/lastName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/criteria_heading"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/criteria"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/criteriaText"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    >
+                    <RadioGroup
+                        android:id="@+id/rgCriteria"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbCGPA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:text="@string/cgpa"
+                            android:checked="false"
+                            android:textSize="16sp"
+                            android:layout_weight="1"/>
+
+                        <RadioButton
+                            android:id="@+id/rbPercentage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="@string/percentage"
+                            android:textSize="16sp"
+                            android:layout_weight="1"/>
+
+                    </RadioGroup>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/tenthMarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/criteria"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvTenthMarks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_10th_marks"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <EditText
+                        android:id="@+id/etTenthMarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/tvTenthMarks"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/ex_95_or_9_5"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="10dp"
+                        android:background="@drawable/et_background"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/twelfthMarks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/tenthMarks"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvTwelfthMarks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_12th_marks"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <EditText
+                        android:id="@+id/etTwelfthMarks"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/tvTwelfthMarks"
+                        android:layout_marginTop="5dp"
+                        android:paddingVertical="12dp"
+                        android:hint="@string/ex_95_or_9_5"
+                        android:paddingHorizontal="10dp"
+                        android:background="@drawable/et_background"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/stream"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/twelfthMarks"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvStream"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/stream"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <EditText
+                        android:id="@+id/etStream"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/tvStream"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/ex_pcm"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="10dp"
+                        android:background="@drawable/et_background"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/father"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/stream"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvFathersName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/fathers_name"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <EditText
+                        android:id="@+id/etFathersName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/tvFathersName"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/michael_johnson"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="10dp"
+                        android:background="@drawable/et_background"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mother"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/father"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvMothersName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mothers_name"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <EditText
+                        android:id="@+id/etMothersName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/tvMothersName"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/emily_johnson"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="10dp"
+                        android:background="@drawable/et_background"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/city"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/mother"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvCity"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/city"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <EditText
+                        android:id="@+id/etCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/tvCity"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/indore"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="10dp"
+                        android:background="@drawable/et_background"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/mobileNumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/city"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvMobileNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/mobile_number"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <EditText
+                        android:id="@+id/etMobileNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/tvMobileNumber"
+                        android:layout_marginTop="5dp"
+                        android:hint="@string/_9876xxxxxx"
+                        android:paddingVertical="12dp"
+                        android:paddingHorizontal="10dp"
+                        android:inputType="phone"
+                        android:background="@drawable/et_background"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/genderHeading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/mobileNumber"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/select_gender_heading"
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/genderContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/genderHeading"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="10dp"
+                    >
+                    <RadioGroup
+                        android:id="@+id/rgGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:orientation="horizontal"
+                        >
+
+                        <RadioButton
+                            android:id="@+id/rbMale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="55dp"
+                            android:text="@string/male"
+                            android:checked="false"
+                            android:textSize="16sp"
+                            android:layout_weight="1"/>
+
+                        <RadioButton
+                            android:id="@+id/rbFemale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="@string/female"
+                            android:textSize="16sp"
+                            android:layout_weight="1"/>
+
+                        <RadioButton
+                            android:id="@+id/rbOther"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="@string/other"
+                            android:textSize="16sp"
+                            android:layout_weight="1"/>
+
+                    </RadioGroup>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/skills"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/genderContainer"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingVertical="10dp"
+                    >
+                    <TextView
+                        android:id="@+id/tvSkills"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/skills"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/cbAndroid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/android"
+                        app:layout_constraintTop_toBottomOf="@id/tvSkills"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/cbWeb"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/cbWeb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/web"
+                        app:layout_constraintTop_toBottomOf="@id/tvSkills"
+                        app:layout_constraintStart_toEndOf="@id/cbAndroid"
+                        app:layout_constraintEnd_toStartOf="@id/cbGCP"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/cbGCP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/gcp"
+                        app:layout_constraintTop_toBottomOf="@id/tvSkills"
+                        app:layout_constraintStart_toEndOf="@id/cbWeb"
+                        app:layout_constraintEnd_toStartOf="@id/cbAzure"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/cbAzure"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/azure"
+                        app:layout_constraintTop_toBottomOf="@id/tvSkills"
+                        app:layout_constraintStart_toEndOf="@id/cbGCP"
+                        app:layout_constraintEnd_toStartOf="@id/cbNumpy"
+                        />
+
+                    <CheckBox
+                        android:id="@+id/cbNumpy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/numpy"
+                        app:layout_constraintTop_toBottomOf="@id/tvSkills"
+                        app:layout_constraintStart_toEndOf="@id/cbAzure"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ProgressBar
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    app:layout_constraintTop_toTopOf="@id/submitBtn"
+                    app:layout_constraintEnd_toEndOf="@id/submitBtn"
+                    app:layout_constraintBottom_toBottomOf="@id/submitBtn"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:progressTint="@color/white"
+                    android:visibility="invisible"
+                    android:theme="@style/progressBarWhite"
+                    />
+
+                <Button
+                    android:id="@+id/submitBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/skills"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginTop="20dp"
+                    android:paddingHorizontal="100dp"
+                    android:paddingVertical="15dp"
+                    android:text="@string/submit"
+                    />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

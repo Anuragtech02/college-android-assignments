@@ -7,10 +7,12 @@ import androidx.core.content.ContextCompat;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -36,6 +38,9 @@ public class Registration extends AppCompatActivity {
 
     //Buttons
     Button submitBtn;
+
+    //Progressbar
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +87,9 @@ public class Registration extends AppCompatActivity {
 
         //Buttons Initialisation
         submitBtn = findViewById(R.id.submitBtn);
+
+        //ProgressBar
+        progressBar = findViewById(R.id.progress);
 
         //List for skills selected
         ArrayList<String> skills = new ArrayList<>();
@@ -146,6 +154,7 @@ public class Registration extends AppCompatActivity {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                progressBar.setVisibility(View.VISIBLE);
                 //Check if any of the fields is not filled
                 if(!checkInputFields() || !checkRadioAndCheckBoxes())
                     //If any field is empty, immediately return
@@ -165,10 +174,8 @@ public class Registration extends AppCompatActivity {
                 intent.putExtra("city", city.getText().toString());
 
                 //Parse and pass radio group values
-                RadioButton criteria = findViewById(criteriaGroup.getCheckedRadioButtonId());
-                RadioButton gender = findViewById(genderGroup.getCheckedRadioButtonId());
-                intent.putExtra("criteria", criteria.getText().toString());
-                intent.putExtra("gender", gender.getText().toString());
+                intent.putExtra("criteria", criteriaGroup.getCheckedRadioButtonId());
+                intent.putExtra("gender", genderGroup.getCheckedRadioButtonId());
 
                 //Pass skills
                 intent.putExtra("skills", skills);
@@ -176,8 +183,13 @@ public class Registration extends AppCompatActivity {
                 //Display Success Toast before starting new activity
                 Toast.makeText(Registration.this, "Successfully Submitted Form", Toast.LENGTH_SHORT).show();
 
-                startActivity(intent);
-
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        progressBar.setVisibility(View.GONE);
+                        startActivity(intent);
+                    }
+                }, 1000);
             }
         });
 

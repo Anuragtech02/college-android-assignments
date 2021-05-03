@@ -11,6 +11,9 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import static android.view.View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
 import static android.view.View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
@@ -19,9 +22,9 @@ import static android.view.WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACK
 public class DisplayDetails extends AppCompatActivity {
 
     // Edit Fields
-    EditText firstName, lastName, tenthMarks;
-    EditText twelfthMarks, stream, fathersName, mothersName;
-    EditText mobileNumber, city;
+    TextView firstName, lastName, tenthMarks;
+    TextView twelfthMarks, stream, fathersName, mothersName;
+    TextView mobileNumber, city;
 
     // Check Fields
     RadioGroup criteriaGroup, genderGroup;
@@ -46,15 +49,15 @@ public class DisplayDetails extends AppCompatActivity {
         }
 
         //Edit Fields initialisation
-        firstName = findViewById(R.id.etFirstName);
-        lastName = findViewById(R.id.etLastName);
-        tenthMarks = findViewById(R.id.etTenthMarks);
-        twelfthMarks = findViewById(R.id.etTwelfthMarks);
-        stream = findViewById(R.id.etStream);
-        fathersName = findViewById(R.id.etFathersName);
-        mothersName = findViewById(R.id.etMothersName);
-        mobileNumber = findViewById(R.id.etMobileNumber);
-        city = findViewById(R.id.etCity);
+        firstName = findViewById(R.id.tvValueFirstName);
+        lastName = findViewById(R.id.tvValueLastName);
+        tenthMarks = findViewById(R.id.tvValueTenthMarks);
+        twelfthMarks = findViewById(R.id.tvValueTwelfthMarks);
+        stream = findViewById(R.id.tvValueStream);
+        fathersName = findViewById(R.id.tvValueFathersName);
+        mothersName = findViewById(R.id.tvValueMothersName);
+        mobileNumber = findViewById(R.id.tvValueMobileNumber);
+        city = findViewById(R.id.tvValueCity);
 
         //Check fields initialisation
         criteriaGroup = findViewById(R.id.rgCriteria);
@@ -75,15 +78,49 @@ public class DisplayDetails extends AppCompatActivity {
         //Get data from intent
         Intent incomingIntent = getIntent();
 
-        incomingIntent.getStringExtra("firstName");
-        incomingIntent.getStringExtra("lastName");
-        incomingIntent.getStringExtra("fathersName");
-        incomingIntent.getStringExtra("mothersName");
-        incomingIntent.getStringExtra("mobileNumber");
-        incomingIntent.getStringExtra("tenthMarks");
-        incomingIntent.getStringExtra("twelfthMarks");
-        incomingIntent.getStringExtra("stream");
-        incomingIntent.getStringExtra("city");
+        firstName.setText(incomingIntent.getStringExtra("firstName"));
+        lastName.setText(incomingIntent.getStringExtra("lastName"));
+        fathersName.setText(incomingIntent.getStringExtra("fathersName"));
+        mothersName.setText(incomingIntent.getStringExtra("mothersName"));
+        mobileNumber.setText(incomingIntent.getStringExtra("mobileNumber"));
+        tenthMarks.setText(incomingIntent.getStringExtra("tenthMarks"));
+        twelfthMarks.setText(incomingIntent.getStringExtra("twelfthMarks"));
+        stream.setText(incomingIntent.getStringExtra("stream"));
+        city.setText(incomingIntent.getStringExtra("city"));
 
+        // Extract radio button ids and check the respective one
+        int criteriaId = incomingIntent.getIntExtra("criteria", -1);
+        int genderId = incomingIntent.getIntExtra("gender", -1);
+        RadioButton criteria = findViewById(criteriaId);
+        criteria.setChecked(true);
+        RadioButton gender = findViewById(genderId);
+        gender.setChecked(true);
+
+        ArrayList<String> skills = incomingIntent.getStringArrayListExtra("skills");
+
+        handleSkills(skills);
+
+    }
+
+    private void handleSkills(ArrayList<String> skills){
+        for (String skill: skills){
+            switch(skill){
+                case "Android":
+                    cbAndroid.setChecked(true);
+                    break;
+                case "Web":
+                    cbWeb.setChecked(true);
+                    break;
+                case "GCP":
+                    cbGCP.setChecked(true);
+                    break;
+                case "Azure":
+                    cbAzure.setChecked(true);
+                    break;
+                case "Numpy":
+                    cbNumpy.setChecked(true);
+                    break;
+            }
+        }
     }
 }

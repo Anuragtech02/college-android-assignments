@@ -1,4 +1,10 @@
 # College Android Assignment
+'''
+    @author : Anurag Pal
+    @email : 19bcs113@ietdavv.edu.in
+    @class : CSB
+    @roll : 19C4113
+'''
 
 ### This application includes
 - A form to enter details
